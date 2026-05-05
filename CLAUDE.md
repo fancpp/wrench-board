@@ -35,22 +35,12 @@ and a stateful **diagnostic conversation** runs the live repair session.
    `⟨?U999⟩` in the delivered text and logged server-side. Implementation:
    `api/agent/sanitize.py`.
 
-## Stack
+## Stack (quick reference — see pyproject.toml for exact versions)
 
-- **Backend:** Python 3.11+, FastAPI (~0.136), uvicorn, Pydantic v2,
-  WebSocket (native), pdfplumber, pytest + pytest-asyncio
-- **Agent:** `anthropic ~= 0.97.0` — tier-selectable at WS-open time:
-  `deep` = Opus (`claude-opus-4-7`), `normal` = Sonnet, `fast` = Haiku
-  (`claude-haiku-4-5`). The pipeline distributes Sonnet/Opus per sub-agent.
-- **Frontend:** Vanilla HTML + CSS + JS (no build step, no bundler). All
-  external assets come from permissively-licensed CDNs: D3.js v7
-  (`d3js.org`), Three.js r128 (`cdnjs.cloudflare.com`, MIT) for the WebGL
-  boardview, Tailwind CDN (`cdn.tailwindcss.com`, MIT) for utility classes
-  in the PCB section, marked and DOMPurify (`cdn.jsdelivr.net`, both MIT)
-  for safe Markdown rendering in the chat panel, and Inter + JetBrains
-  Mono fonts (`fonts.googleapis.com`). Any new CDN dependency must be
-  permissively licensed and land in `web/index.html` with no transitive
-  package-manager step.
+- **Backend:** Python 3.11+ / FastAPI / Pydantic v2 / native WebSocket / pdfplumber
+- **Agent SDK:** `anthropic ~= 0.97.0`. Tier-selectable at WS-open: `deep` = Opus, `normal` = Sonnet, `fast` = Haiku
+- **Frontend:** Vanilla HTML + CSS + JS. No build step, no bundler. D3.js v7, Three.js r128 (CDN). French UI copy.
+  New CDN deps must be permissively licensed and land in `web/index.html` only.
 
 ## Commands
 
@@ -650,6 +640,41 @@ The pipeline distributes models per sub-agent (Sonnet/Opus split — see
 commit 21de00b). The diagnostic runtime picks the model from the `tier`
 query param at WS open: `fast` / `normal` / `deep`. Changing tier in the
 frontend reconnects the WS (explicit new conversation).
+
+## Getting your bearings — for new Claude instances
+
+When entering this codebase for the first time, read the following in order:
+
+1. **`README.md`** — project purpose, demo video link, quickstart
+2. **This file** (CLAUDE.md) — architecture, hard rules, design language
+3. **`docs/ARCHITECTURE.md`** — event flows, tool dispatch, architectural debt
+4. **`api/agent/manifest.py`** — the 36 custom tools the agent declares (the surface you'll interact with most)
+5. **`api/pipeline/schemas.py`** — all Pydantic data shapes (source of truth for serialization)
+
+### Common workflows
+
+**Fixing a bug in the diagnostic agent:**
+1. Check `api/agent/sanitize.py` (anti-hallucination layer) and `api/agent/manifest.py` (tool definitions)
+2. If the bug is in tool dispatch → `api/agent/tool_dispatch.py`
+3. If the bug is in a runtime → `api/agent/runtime_managed.py` or `api/agent/runtime_direct.py`
+4. Run `make test` before committing
+
+**Adding a feature to the UI:**
+1. Add a section to `SECTIONS` in `web/js/router.js`, a rail button in `web/index.html`
+2. Create the DOM block inline or in a new `<section>`; wire logic in a new `web/js/*.js` module
+3. Follow design tokens in `web/styles/tokens.css`; French labels; inline SVG icons
+4. Verify in browser (no build step)
+
+**Adding a board parser:**
+1. Create `api/board/parser/<format>.py` with a class decorated with `@register` declaring `extensions = (...)`
+2. Subclass `BoardParser` from `api/board/parser/base.py`
+3. One file, no changes to the registry — `parser_for(path)` auto-discovers it
+
+**Adding a new agent tool:**
+1. Add the tool function in `api/agent/tools.py` (MB tools) or `api/tools/boardview.py` (BV tools)
+2. Register it in `api/agent/manifest.py` — add to `MB_TOOLS` or `BV_TOOLS` or create a new list
+3. If the tool triggers a WS event, add the envelope to `api/tools/ws_events.py`
+4. Run `make tools-inventory` to regenerate `docs/tools.md`
 
 ## Editorial rule — keep this file permanent
 
