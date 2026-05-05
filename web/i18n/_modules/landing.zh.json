@@ -1,0 +1,66 @@
+{
+  "sidebar": {
+    "title": "最近",
+    "aria": "最近维修",
+    "delete_aria": "删除此维修",
+    "delete_title": "删除",
+    "count_one": "{n} 个维修",
+    "count_many": "{n} 个维修"
+  },
+  "hero": {
+    "title": "你的硬件维修助手。",
+    "sub": "告诉我你的设备和症状 — 我将构建知识并打开诊断。",
+    "device_placeholder": "设备（例如 MNT Reform 主板、iPhone 11、Framework 13）",
+    "device_aria": "哪个设备",
+    "symptom_placeholder": "症状（例如无法开机、不充电、黑屏）",
+    "symptom_aria": "症状是什么",
+    "submit": "开始诊断"
+  },
+  "chips": {
+    "mnt_label": "MNT Reform — 无法启动",
+    "mnt_symptom": "无法启动，黑屏",
+    "iphone_label": "iPhone 11 — 不充电",
+    "iphone_symptom": "无法充电",
+    "framework_label": "Framework — 黑屏",
+    "framework_symptom": "开机黑屏"
+  },
+  "timeline": {
+    "title_default": "正在构建知识清单…",
+    "title_build": "正在构建清单 · {device}",
+    "title_expand": "定向丰富 · {device}",
+    "title_loading": "正在加载清单 · {device}",
+    "title_ready": "清单就绪 · {status}",
+    "title_failed": "管道失败",
+    "elapsed": "已用时 · {n} 秒",
+    "phase_scout": "侦察 · 网络研究",
+    "phase_registry": "注册 · 规范词汇",
+    "phase_mapper": "映射 · refdes ↔ 图谱",
+    "phase_writers": "编写 · 图谱 + 规则 + 词汇表",
+    "phase_audit": "审计 · 验证",
+    "phase_expand": "针对你的症状进行定向研究"
+  },
+  "status": {
+    "pipeline_started": "{device} 上的管道已启动。",
+    "checking": "正在保存你的维修并检查我是否已经了解这个设备…",
+    "rule_match": "我已经知道这个案例（{rule_id}）。正在打开诊断…",
+    "device_known": "我已经知道 {device}。正在打开诊断…",
+    "expand": "我知道 {device}。正在添加你的具体症状（约 3 分钟）。",
+    "build_new": "对我来说是新设备 — 正在后台构建清单。欢迎查看进度。",
+    "ready": "一切就绪。正在打开诊断…",
+    "ws_lost": "管道连接丢失。如果无进展，请刷新页面。",
+    "error_create": "创建失败：{error}",
+    "error_pipeline": "错误：{error}。",
+    "error_unknown": "未知",
+    "error_invalid_response": "无效的服务器响应",
+    "error_delete": "删除失败：{error}",
+    "validation_device": "请更具体地描述设备 — 至少几个词。",
+    "validation_symptom": "请更详细地描述症状。"
+  },
+  "delete": {
+    "confirm": "删除此维修？对话和助手笔记将被永久删除。"
+  },
+  "suggest": {
+    "aria": "设备建议",
+    "draft": "草稿"
+  }
+}

@@ -1,0 +1,240 @@
+{
+  "head": {
+    "title": "维修日志",
+    "subtitle": "微焊接诊断会话。点击卡片继续。",
+    "new_btn": "新建维修"
+  },
+  "empty": {
+    "title": "无进行中的维修",
+    "body": "创建一个新维修，助手即可开始诊断。"
+  },
+  "list": {
+    "repairs_one": "个维修",
+    "repairs_many": "个维修",
+    "devices_one": "个设备",
+    "devices_many": "个设备",
+    "summary": "{repairs} {repairsLabel} · {devices} {devicesLabel}",
+    "uncategorized": "未分类"
+  },
+  "status": {
+    "open": "打开",
+    "in_progress": "进行中",
+    "closed": "已解决"
+  },
+  "time": {
+    "now": "刚刚",
+    "minutes_ago": "{n} 分钟前",
+    "hours_ago": "{n} 小时前",
+    "yesterday": "昨天",
+    "days_ago": "{n} 天前"
+  },
+  "dashboard": {
+    "fix_btn": "标记修复",
+    "fix_btn_title": "将维修标记为已解决 — Claude 验证并记录修复内容",
+    "fix_btn_validating": "… Claude 正在验证",
+    "fix_btn_open_chat": "请先打开聊天",
+    "fix_btn_failed": "失败 — 重试",
+    "leave": "离开会话",
+    "leave_title": "离开会话",
+    "created_at": "创建于 {when}",
+    "cap": {
+      "tag": "AI 能力",
+      "body": "助手根据你提供的数据使用对应工具。",
+      "minimal_label": "AI 能力有限",
+      "minimal_blurb": "为此设备构建记忆并导入原理图 + boardview 以解锁所有工具。",
+      "full_label": "AI 能力 — 全部解锁",
+      "full_blurb": "原理图 + boardview + 记忆已加载。助手的全部视觉和因果工具可用。",
+      "partial_label": "AI 能力 — 部分",
+      "partial_blurb": "部分工具箱已激活。导入缺失源以解锁其余部分。",
+      "minimal_partial_label": "AI 能力 — 最小",
+      "minimal_partial_blurb": "助手可以聊天但不能显示或模拟。导入原理图 + boardview 使其可操作。",
+      "cold_label": "AI 能力 — 助手无数据",
+      "cold_blurb": "此设备未关联任何源。开始维修并导入原理图 + boardview。",
+      "score": "{n} / 4 个源已激活",
+      "row": {
+        "schematic_label": "原理图",
+        "schematic_on": "模拟器, hypothesize",
+        "boardview_label": "Boardview",
+        "boardview_on": "12 个 bv_* 工具",
+        "graph_label": "图谱",
+        "graph_on": "规则 + 词典",
+        "memory_label": "记忆",
+        "memory_on": "mb_* 工具",
+        "off": "关"
+      }
+    },
+    "schematic": {
+      "title": "原理图 PDF",
+      "sub": "视觉管道 · 输入",
+      "loss_lead": "没有原理图：",
+      "loss_body": "无模拟器、无 <code>mb_hypothesize</code>、无电气图。助手无法推理电路板因果关系。",
+      "state_compiled": "已编译",
+      "state_compiling": "编译中",
+      "state_to_import": "待导入",
+      "meta_compiled": "PDF + 电气图 — 助手可以模拟和假设推理。",
+      "meta_imported_compiling": "PDF 已导入。编译中。",
+      "meta_missing": "无 PDF — 助手在硬件上盲操作。",
+      "meta_versions_suffix": " · {n} 个版本",
+      "checking": "检查中…",
+      "open": "打开",
+      "import_version": "导入版本",
+      "import_pdf": "导入 PDF"
+    },
+    "boardview": {
+      "title": "Boardview",
+      "sub_default": "输入 · .brd / .kicad_pcb / .fz…",
+      "sub_format": "格式 {format}",
+      "fmt_default": ".brd / .kicad_pcb / .fz / .tvw…",
+      "fmt_format": "格式 {format}",
+      "fmt_detected": "已检测",
+      "loss_lead": "没有 boardview：",
+      "loss_body": "12 个视觉工具不可用（<code>bv_highlight</code>、<code>bv_focus</code>、<code>bv_measure_distance</code>…）。助手无法<em>显示</em>元件位置。",
+      "state_imported": "已导入",
+      "state_to_import": "待导入",
+      "meta_imported": "12 个视觉工具可用 · 格式 {format}{suffix}。",
+      "meta_missing": "助手无法指向元件或测量距离。",
+      "open": "打开",
+      "import_version": "导入版本",
+      "import_boardview": "导入 boardview",
+      "diag_count_label": "参考",
+      "diag_popover_title": "可诊断就绪",
+      "diag_popover_body": "此板携带制造商标记的网络参考值（每个网络的预期电阻、存在电压时的预期电压）。探测可疑网络，与检查器中的预期值比较 — 偏差大意味着开路或短路。没有这些参考的板需要目测诊断或与已知良板对比。"
+    },
+    "knowledge": {
+      "title": "因果图",
+      "sub": "派生 · 症状 → 操作",
+      "state_approved": "已批准",
+      "state_building": "构建中",
+      "state_empty": "空",
+      "meta_complete": "注册表 + 图 + 规则 + 词典 + 审计。诊断就绪。",
+      "meta_building": "管道运行中 — 完成后助手即可使用。",
+      "meta_off": "维修开始时自动构建。",
+      "open_graph": "查看图谱"
+    },
+    "memory": {
+      "title": "记忆库",
+      "sub": "派生 · 规则 · 发现",
+      "state_active": "活跃",
+      "state_building": "构建中",
+      "state_empty": "空",
+      "meta_active": "助手可以调用 mb_get_component、mb_get_rules_for_symptoms、mb_record_finding。",
+      "meta_building": "词汇已就绪，临床医生正在起草规则…",
+      "meta_off": "将由管道填充。规则存在后始终活跃。",
+      "open": "打开"
+    },
+    "electrical": {
+      "state_compiled": "已编译",
+      "state_compiling": "编译中",
+      "state_unavailable": "不可用",
+      "meta_compiled": "网络、轨和启动序列已就绪。mb_schematic_graph + 模拟器正常。",
+      "meta_compiling": "原理图已导入 — 编译在后台运行。",
+      "meta_off": "导入原理图 PDF 可解锁此图谱和模拟器。",
+      "open": "打开"
+    },
+    "build": {
+      "vision_pipeline_pages": "视觉管道（{n} 页）· ~{remaining} 剩余",
+      "vision_pipeline": "视觉管道 · ~{remaining} 剩余",
+      "vision_pipeline_finalizing_pages": "视觉管道（{n} 页）· 收尾中…",
+      "vision_pipeline_finalizing": "视觉管道 · 收尾中…",
+      "vision_pipeline_running": "视觉管道运行中…",
+      "remaining_min": "{n} 分钟",
+      "remaining_sec": "{n} 秒"
+    },
+    "convs": {
+      "tag": "对话",
+      "title": "诊断线程",
+      "empty": "暂无对话 — 开始与助手讨论。",
+      "untitled": "对话 {id}",
+      "turns_meta": "{turns} 轮 · {cost} · {ago}",
+      "new": "+ 新对话",
+      "delete_aria": "删除对话",
+      "delete_confirm": "删除此对话？\n消息历史和关联的助手会话将被删除。此操作不可撤销。",
+      "delete_failed": "删除失败 — 重试。"
+    },
+    "findings": {
+      "tag": "field_reports/",
+      "title": "已保存的发现",
+      "empty_html": "此设备暂无发现。你确认故障后，助手通过 <code>mb_record_finding</code> 记录。",
+      "session_current": "当前维修"
+    },
+    "timeline": {
+      "tag": "活动",
+      "title": "时间线",
+      "session_opened": "会话已打开",
+      "activity": "活动 · {tier} · {turns} 轮",
+      "finding_confirmed": "发现 {refdes} 已确认",
+      "pack_audited": "知识包已审计 — {verdict}",
+      "older": "+{n} 更早",
+      "empty": "暂无活动。"
+    },
+    "pack": {
+      "tag": "知识包",
+      "title": "设备记忆",
+      "empty": "无知识包 — 设备记忆尚未构建。",
+      "status_approved": "已批准",
+      "status_building": "构建中"
+    }
+  },
+  "toast": {
+    "switch_in_progress": "正在激活 {kind}…",
+    "switch_failed_title": "切换失败",
+    "switch_failed_sub": "{status} {detail}",
+    "switch_failed_retry": "重试",
+    "version_cached_title": "版本已激活（缓存）",
+    "version_cached_sub": "{name} — 图谱即时恢复。",
+    "rebuilding_title": "重新编译中",
+    "rebuilding_sub": "{name}{pages}{eta}",
+    "pin_updated_title": "固定已更新",
+    "pin_updated_sub": "{name} — 下次会话打开时生效。",
+    "network_title": "网络",
+    "network_sub": "无法连接后端。",
+    "import_in_progress": "导入 {kind} 中…",
+    "import_failed": "导入失败",
+    "import_failed_retry": "尝试其他文件",
+    "import_done": "导入完成",
+    "compile_done_title": "编译完成",
+    "compile_done_sub": "电气图可用 — 版本已缓存。",
+    "kind_schematic": "原理图",
+    "kind_boardview": "boardview"
+  },
+  "version": {
+    "tag": "版本"
+  },
+  "modal": {
+    "badge": "新会话",
+    "sub": "· 微焊接诊断",
+    "title": "新建维修",
+    "close": "关闭弹窗",
+    "device_label": "设备",
+    "device_placeholder": "例如 iPhone X · MNT Reform · Steam Deck",
+    "device_combo_label": "已知设备",
+    "hint_default": "输入设备名称（品牌 + 型号）。主板类型（逻辑板、主板…）自动检测。",
+    "hint_existing_complete": "知识包已构建 — 会话直接打开。勾选以重新生成。",
+    "hint_existing_partial": "知识包存在但不完整 — 管道将补充缺失的工件。",
+    "hint_typed": "输入设备名称（品牌 + 型号）。主板类型自动检测。",
+    "rebuild_label": "从头重新生成（消耗 Token — 知识包过时时使用）",
+    "symptom_label": "观察到的症状",
+    "symptom_placeholder": "例如：摔后麦克风无声。扬声器正常，Siri 回复但听不到。",
+    "symptom_hint": "描述用户观察到的现象。助手将从这里开始诊断。",
+    "cancel": "取消",
+    "submit": "开始诊断",
+    "submit_busy": "创建中…",
+    "combo": {
+      "create": "+ 创建「{name}」",
+      "create_badge": "新建",
+      "empty": "无已知设备 — 输入名称以创建。",
+      "badge_audited": "已审计",
+      "badge_partial": "部分"
+    },
+    "errors": {
+      "device_too_short_title": "字段不完整 — ",
+      "device_too_short": "设备名称至少需要 2 个字符。",
+      "symptom_too_short_title": "字段不完整 — ",
+      "symptom_too_short": "请描述症状 — 至少 5 个字符。",
+      "backend_title": "错误 — ",
+      "backend_response": "后端响应 {status}。{detail}",
+      "network_title": "网络 — ",
+      "network": "无法连接服务器。请检查后端是否在运行。"
+    }
+  }
+}

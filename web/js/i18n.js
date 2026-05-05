@@ -14,7 +14,7 @@
 //   i18n.onReady(fn)           → run fn once dictionaries are loaded
 //   i18n.onChange(fn)          → notify on locale switch (re-render hook)
 
-const SUPPORTED = ['en', 'fr'];
+const SUPPORTED = ['en', 'fr', 'zh'];
 const DEFAULT_LOCALE = 'en';
 const STORAGE_KEY = 'wb.locale';
 

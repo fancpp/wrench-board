@@ -1,0 +1,77 @@
+{
+  "title": "技术人员资料",
+  "head": {
+    "tag": "技术员",
+    "no_name": "未命名",
+    "no_specialty": "无专长",
+    "edit_identity": "编辑身份",
+    "years_one": "{n} 年经验",
+    "years_other": "{n} 年经验",
+    "years_zero": "0 年",
+    "updated": "更新于 {date}"
+  },
+  "ribbon": {
+    "tag": "成长",
+    "title": "等级 {level}",
+    "default_blurb": "等级由已练习的技能数量决定。",
+    "blurbs": {
+      "beginner": "你刚开始。助手会在要求你操作前详细解释每一步。",
+      "intermediate": "你在进步。助手会减少解释并让你更多主导。",
+      "confirmed": "你已经很熟练。助手会将决策交给你并确认你的假设。",
+      "expert": "你是专家。助手保持简洁，跟随你处理复杂故障。"
+    },
+    "rungs": {
+      "beginner": "初学者",
+      "intermediate": "进阶",
+      "confirmed": "熟练",
+      "expert": "专家"
+    }
+  },
+  "stats": {
+    "tag_mastered": "已掌握",
+    "tag_practiced": "已练习",
+    "tag_learning": "学习中",
+    "tag_tools": "工具",
+    "sub_skills": "个已分类技能",
+    "sub_tools": "个已分类工具",
+    "block_skills_total": "{n} 项技能",
+    "block_tools_total": "{on} / {total} 个活跃"
+  },
+  "blocks": {
+    "skills_tag": "技能",
+    "skills_heading": "操作画像",
+    "tools_tag": "工具",
+    "tools_heading": "已申报工作台",
+    "prefs_tag": "诊断偏好",
+    "prefs_heading": "助手姿态"
+  },
+  "status": {
+    "mastered": "已掌握",
+    "practiced": "已练习",
+    "learning": "学习中",
+    "unlearned": "未练习"
+  },
+  "drawer": {
+    "close": "关闭",
+    "no_history": "此技能尚无历史 — 当助手检测到确认使用后即开始追踪。"
+  },
+  "prefs": {
+    "verbosity": "详细程度",
+    "language": "语言"
+  },
+  "modal": {
+    "kicker": "技术人员资料",
+    "title": "编辑你的身份",
+    "close": "关闭",
+    "field_name": "姓名",
+    "field_avatar": "头像（2 个字母或表情符号）",
+    "field_years": "经验年限",
+    "field_specialties": "专长（逗号分隔）",
+    "specialties_placeholder": "苹果、游戏机、笔记本电脑",
+    "field_level": "强制等级（可选）",
+    "level_auto": "（自动派生）",
+    "cancel": "取消",
+    "save": "保存",
+    "save_failed": "无法保存：{error}"
+  }
+}
